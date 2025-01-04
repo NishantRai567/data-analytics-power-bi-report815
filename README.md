@@ -146,3 +146,63 @@ Finally, a date slicer was added to allow users to filter the page by year.
 Below is a screenshot of the finished report page:
 
 ![customer-details page](image-1.png)
+
+## Building the Executive Summary Page
+
+A report page was created for the high-level executive summary. The purpose of this page is to give a n overview of the company's performance as a whole, so that C-suite exceutives can quickly gather insights and check outcomes against key targets.
+
+### Task 1: Creating card Visuals
+
+- Card visuals were made for the Total Revenue, Total Orders and Total Profit measures. 
+- The Callout values were formatted so that only 2 decimals places are shown for the Total Profits and revenue and 1 decimal place for the Total Orders.
+- The 3 Card Visuals were arranged so they span half the width of the page
+
+### Task 2: Adding a Revenue Trending Line Chart
+
+- A line chart was made with the x-axis set to the date hierachy and y-axis set to the Total Revenue. 
+- This chart was positioned below the card visuals.
+
+### Task 3: Adding Donut Charts for Revenue by Country and Store Type
+
+- A pair of donut charts were cretaed, showing Total Revenue broken down by Store[Country] and Store[Store Type] respectively.
+
+### Task 4: Adding a Bar Chart of Orders by Product Category
+
+- A clustered bar chart was made with Total Orders on the x axis and Product Category on the y axis.
+- The chart was then formatted with an approriate colour theme
+
+### Task 5: Adding KPI Visuals
+
+- New measures were created for:
+  - Previous Quarter Profit
+    ```dax
+    Previous Quarter Profit = CALCULATE([Total Profit],PREVIOUSQUARTER(Dates[Date]))
+    ```
+  - Previous Quarter Revenue
+    ```dax
+    Previous Quarter Revenue = CALCULATE([Total Revenue],PREVIOUSQUARTER(Dates[Date]))
+  - Previous Quarter Orders
+   ```dax
+   Previous Quarter Orders = CALCULATE([Total Orders],PREVIOUSQUARTER(Dates[Date]))
+   ```
+  - Targets, equal to 5% growth in each measure compared to the previous quarter
+
+- A KPI was then made for the revenue:
+  - The Value field was set to the Total Revenue
+  - The Trend Axis was set to the Start of Quarter
+  - The Target was set to the Target Revenue
+
+- In the Format pane, with the Trend axis set to On, the following values were set:
+  - Direction : High is Good
+  - Bad Colour : red
+  - Transparency : 15%
+
+- This was repeated for the Profit and Orders cards with the approriate values
+
+- The 3 KPI visuals were then arranged below the revenue trending line Chart
+
+-A screenshot of the finished report page is shown below:
+
+![Executive Summary Page](image-2.png)
+
+
