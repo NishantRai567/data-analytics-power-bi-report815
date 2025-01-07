@@ -206,3 +206,83 @@ A report page was created for the high-level executive summary. The purpose of t
 ![Executive Summary Page](image-2.png)
 
 
+## Creating the Product Detail Page
+
+The purpose of this page is to provide an in depth look into which products within the inventory are performing well, with the option to filter by category and region.
+
+### Task 1: Adding Gauge Visuals
+
+The first step is to add a set of three gauges, showing the current-quarter performance of Orders, Revenue and Profit against a quarterly target.
+
+- DAX measures were created for the current quarterly Revenue,Orders and Profits.
+- Measures were then also made for the quarterly targets for each metric and then for the gap between the target and performance measures.
+- Three gauge filters were created, and assigned to the relevant measures. In each case, the maximum value of the gauge was set to the target, so that the gauge shows as full when the target is met.
+- Conditional formatting was then applied to the callout value, so that it shows as red if the target is not yet met, and black otherwise.
+- The gauges were arranged so they were spaced evenly at the top right of the page.
+
+### Planning out the Filter State Cards
+
+- Two rectangle shapes were added as placeholders for the cards which will show the filter state.
+- The following measures were then defined to reflect the filter state of the card:
+   
+   ```dax
+   Category Selection = IF(ISFILTERED(Products[Category]), SELECTEDVALUE(Products[Category], "No Selection"), "No Selection")`
+   Country Selection = IF(ISFILTERED(Stores[Country]), SELECTEDVALUE(Stores[Country],"No Selection")`
+   ```
+- Card visuals were then added to each of the rectangles, and assigned one of these measures to each of them. 
+- The cards were formatted to be the same size as the gauges, and the text was centred.
+
+### Task 3: Adding an Area Chart of Revenue by Product Category
+
+- An area chart was added that shows how the different product categories are performing in terms of revenue over time.
+- The following fields were et:
+  
+  X axis as Dates[Start of Quarter]
+  Y axis values as the Total Revenue
+  Legend as Products[Category]
+
+- The chart was arranged on the left of the page, extending to level with the start of the second gauge visual.
+
+### Adding a Top Products Table
+
+A top 10 products table was added underneath the area chart with the following fields:
+- Product Description
+- Total Revenue
+- Total Customers
+- Total Orders
+- Profit per Order
+
+### Adding a Scatter Graph of Qauntity Sold vs Profit per items
+
+The products team want to know which items to suggest to the marketing team for a promotional campaign. They want a visual that allows them to quickly see which product ranges are both top-selling items and also profitable.
+A scatter graph would be ideal for this job.
+
+- Firstly, a new calculated column was created called [Profit per Item] in the Products table using this DAX formula:
+
+``` dax
+Profit per Item = Products[Sale Price] - Products[Cost Price]
+```
+
+- A new Scatter chart was added to the page, and configured as follows:
+
+  Values as Products[Description]
+  X-Axis as Products[Profit per Item]
+  Y-Axis as Orders[Total Quantity]
+  Legend as Products[Category]
+
+### Task 6: Creating a Slicer Toolbar
+
+- Slicers allow users to control how the data on a page are filtered. However, adding multiple slicers can clutter up the layout of the report page.
+- A professional-looking solution to this issue is to use Power BI's bookmarks feature to create a pop-out toolbar which can be accessed from the navigation bar on the left-hand side of the report.
+- First, a new blank button was added tot he top of the navigation bar, with the tooltip text set to 'Open Slicer Panel'
+- Next, a new rectangle shape was added over the naviagtion bar and brought to the top of the stacking order in the Selection Pane.
+- A Products[Category] and Store[Region] Vertical List slicer were then added and grouped to the rectangle slicer toolbar shape.
+- A 'Back' button was then added so that we can hide the slicer toolbar when not in use.
+- Two new bookmarks were added : one with the toolbar group hidden in the Selection pane, and one with it visible. 
+- These were named 'Slicer Bar Closed' and 'Slicer Bar Open'. 
+- Finally the actions were assigned on each button to the appropriate bookmark
+
+Below are screenshots of the finished Products Detail Page:
+
+![Products page with Slicer Bar Closed](image-3.png)
+![Products Details Page with Slicer Bar Open](image-4.png)
