@@ -284,5 +284,56 @@ Profit per Item = Products[Sale Price] - Products[Cost Price]
 
 Below are screenshots of the finished Products Detail Page:
 
-![Products page with Slicer Bar Closed](image-3.png)
-![Products Details Page with Slicer Bar Open](image-4.png)
+Products page with Slicer Bar Closed: ![Products page with Slicer Bar Closed](image-3.png)
+Products page with Slicer Bar Open: ![Products Details Page with Slicer Bar Open](image-4.png)
+
+## Creating the Stores Map Page
+
+The regional managers have requested a report page that allows them to see which stores are most profitable and on track to reach their quarterly revenue and profit targets. The best way to achieve this is by creating a map visual.
+
+### Task 1: Adding the Map Visual
+
+- On the Stores Map page, a new map visual was created that spans the majority of the page.
+- The Geography hiereachy was set to the Location field and the ProfitYTD to the Bubble size field.
+- The controls of the map were set as follows:
+
+  Show Labels: On
+  Auto-Zoom: On
+  Zoom buttons: Off
+  Lasso button: Off
+
+### Task 2: Adding a Country Slicer
+
+A slicer was added above the map, with the field set to Stores[Country], the slicer style as Tile and the Selection settings to Multi-select with Ctrl/Cmd and  "Select All" as an option.
+
+Below is a screenshot of the finished Srores Map Page:
+![Stores Map Page](image-6.png)
+
+### Task 3: Creating a Stores Drillthough Page
+
+To make it easy for the region managers to check on the progress of a given store, a drillthrough page was created that summarises each store's performance. This includes following visuals:
+
+- Firstly, a new page named Stores Drillthrough was created.The Page type was set to Drillthrough and  'Drill through when' was set as 'Used as category'.'Drill through from' was set to country region.
+
+The following visuals were added to the page:
+
+- A table showing the top 5 products based on Total Orders, with columns: Description, Profit YTD, Total Orders, Total Revenue
+- A column chart showing Total Orders by product category for the store
+- Gauges for Profit YTD against a profit target of 20% year-on-year growth vs. the same period in the previous year. The target should use the Target field, not the Maximum Value field, as the target will change as we move through the year.
+- A Card visual showing the currently selected store
+
+A screenshot of the Stores Drillthough page is shown below:
+
+![Stores Drillthrough](image-5.png)
+
+### Task 4: Creating a Stores Tooltip Page
+
+A custom tooltips page was created so that users will be able to see each store's year-to-date profit just by hovering the mouse over a store on the map.
+
+- This was done by creating a new page and adjusting the page type to Tooltip under the Page Information card in the Format Pane. The Profit Gauge from the Stores drillthough page was copied over.
+
+![alt text](image-7.png)
+
+- Finally, the tooltip of map visual was set to the tooltip page that was just created.
+
+![alt text](image-10.png)
