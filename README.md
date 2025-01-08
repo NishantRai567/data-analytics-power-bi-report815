@@ -337,3 +337,41 @@ A custom tooltips page was created so that users will be able to see each store'
 - Finally, the tooltip of map visual was set to the tooltip page that was just created.
 
 ![alt text](image-10.png)
+
+## Cross-Filtering and Navigation
+
+## Task 1: Fixing the Cross-Filtering
+
+From the Edit Interactions view in the Format tab of the ribbon, the following interactions were set:
+
+1. For the Executive Summary Page:
+
+The Product Category bar chart and Top 10 Products table should not filter the card visuals or KPIs
+
+
+2. For the Customer Detail Page:
+
+- The Top 20 Customers table should not filter any of the other visuals 
+- Total Customers by Product Category Donut Chart should not affect the Customers line graph 
+- Total Customers by Country donut chart should cross-filter Total Customers by Product Category Donut Chart
+
+3. For the Product Detail Page:
+
+- Orders vs. Profitability scatter graph should not affect any other visuals 
+- Top 10 Products table should not affect any other visuals
+
+This was achieved by selecting the 'No Interation' Icon. This disables interactions from the source visual to the target visual. An example of how this was achieved for the Top 10 Products Table is shown below:
+
+![alt text](image-11.png)
+
+### Task 2: Finishing the Navigation Bar
+
+- For each page, there is a custom icon available in the custom icons collection file. For each icon there are two colour variants. The white version was used for the default button appearance, and the cyan one so that the button changes colour when hovered over with the mouse pointer.
+- In the sidebar of the Executive Summary page, four new blank buttons were added, and in the Format > Button Style pane, the Apply settings to field was set to Default, and each button icon to the relevant white png in the Icon tab.
+- Each button was set to **On Hover**, and then  the alternative cyan  icon of the relevant button was selected under the Icon tab.
+- Then for each button, the **Action** Format option was turned on,the type was selected as Page Navigation and the destitnation to the relevant page each icon corresponds to.
+- Finally the 4 buttons were grouped together and copied accross all the pages.
+
+The final navigation bar is shown below for the Executive Summary Page:
+
+![Executive Summary Page with Navigation Bar](image-12.png)
