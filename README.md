@@ -43,7 +43,6 @@ The next step was creating relationships between the tables to form the start sc
   - Date[date] to Orders[Order Date]
   - Date[date] to Orders[Shipping Date]
 
-Below is a screenshot of the star schema model from the Power BI file:
 ![Star Schema model](image.png)
 
 ### Task 3: Creating a measures table
@@ -143,8 +142,6 @@ Revenue made by Top Customer = CALCULATE([Total Revenue],TOPN(1,VALUES(Customers
 
 Finally, a date slicer was added to allow users to filter the page by year.
 
-Below is a screenshot of the finished report page:
-
 ![customer-details page](image-1.png)
 
 ## Building the Executive Summary Page
@@ -201,7 +198,6 @@ A report page was created for the high-level executive summary. The purpose of t
 
 - The 3 KPI visuals were then arranged below the revenue trending line Chart
 
--A screenshot of the finished report page is shown below:
 
 ![Executive Summary Page](image-2.png)
 
@@ -282,8 +278,6 @@ Profit per Item = Products[Sale Price] - Products[Cost Price]
 - These were named 'Slicer Bar Closed' and 'Slicer Bar Open'. 
 - Finally the actions were assigned on each button to the appropriate bookmark
 
-Below are screenshots of the finished Products Detail Page:
-
 Products page with Slicer Bar Closed: ![Products page with Slicer Bar Closed](image-3.png)
 Products page with Slicer Bar Open: ![Products Details Page with Slicer Bar Open](image-4.png)
 
@@ -306,7 +300,6 @@ The regional managers have requested a report page that allows them to see which
 
 A slicer was added above the map, with the field set to Stores[Country], the slicer style as Tile and the Selection settings to Multi-select with Ctrl/Cmd and  "Select All" as an option.
 
-Below is a screenshot of the finished Srores Map Page:
 ![Stores Map Page](image-6.png)
 
 ### Task 3: Creating a Stores Drillthough Page
@@ -322,7 +315,6 @@ The following visuals were added to the page:
 - Gauges for Profit YTD against a profit target of 20% year-on-year growth vs. the same period in the previous year. The target should use the Target field, not the Maximum Value field, as the target will change as we move through the year.
 - A Card visual showing the currently selected store
 
-A screenshot of the Stores Drillthough page is shown below:
 
 ![Stores Drillthrough](image-5.png)
 
@@ -334,7 +326,7 @@ A custom tooltips page was created so that users will be able to see each store'
 
 ![alt text](image-7.png)
 
-- Finally, the tooltip of map visual was set to the tooltip page that was just created.
+- Finally, the tooltip of the map visual was set to the tooltip page that was just created.
 
 ![alt text](image-10.png)
 
@@ -375,3 +367,46 @@ This was achieved by selecting the 'No Interation' Icon. This disables interacti
 The final navigation bar is shown below for the Executive Summary Page:
 
 ![Executive Summary Page with Navigation Bar](image-12.png)
+
+## Creating Metrics for Users Outside of the Company Using SQL
+
+It is common to encounter clients that don't have access to specialised visualisation tools like Poer BI. To ensure that data insights can still be extracted and shared witha broader audience, this section will use SQL queries to extract and disseminate key data without relying solely on visulaisation platforms.
+
+### Task 1: Connecting to the SQL Server
+
+- A connection was made to a Postgres database server hosted on Microsoft Azure. The name of the server was **powerbi-data-analytics-server.postgres.database.azure.com**. An installation to the SQLTools extension was needed to connect to this server and run queries from VSCode.
+
+![alt text](image-13.png)
+
+## Task 2: Checking the Table and Column Names
+
+- A list of the tables in the database was printed and  the result was saved to a **csv** file.
+```sql
+SELECT table_name
+FROM information_schema.tables
+WHERE table_schema='public';
+```
+
+- Next, a  list of the columns in the orders table was printed and the result was saved to a **csv** file called orders_columns.csv.
+
+```sql
+SELECT column_name
+FROM information_schema.columns
+WHERE table_name='orders_powerbi';
+```
+
+- This process was repeated for eall the tables in the database, and the results were saved to a csv file with the same name as the table.
+
+Task 3: Query the Database
+
+SQL queries were written to answer the following questions. In each case the results of the queries were exported as a **csv** file and uploaded to the Github repo along with the query itself as a **.sql** file.The questions answered are shown below:
+
+1. How many staff are there in all of the UK stores?
+
+2. Which month in 2022 has had the highest revenue?
+
+3. Which German store type had the highest revenue for 2022?
+
+4. Create a view where the rows are the store types and the columns are the total sales, percentage of total sales and the count of orders
+
+5. Which product category generated the most profit for the "Wiltshire, UK" region in 2021?
