@@ -55,32 +55,39 @@ This step involves creating some of the key measures that will be used in this r
 
 - A measure called Total Orders that counts the number of orders in the Orders table
 ```dax
-Total Orders = COUNTROWS(Orders)```
+Total Orders = COUNTROWS(Orders)
+```
 
 
 - A Measure called Total Revenue that multiplies the Orders[Product Quantity] column by the Products[Sale_Price] column for each row, and then sums the result
 ```dax
-Total Revenue = SUMX(Orders,Orders[Product Quantity]*RELATED(Products[Sale Price]))```
+Total Revenue = SUMX(Orders,Orders[Product Quantity]*RELATED(Products[Sale Price]))
+```
 
 - A measure called Total Profit that calculates the profit for each order and then sums the result for all rows :
 ```dax
-Total Profit = SUMX(Orders,Orders[Product Quantity]*(RELATED(Products[Sale Price])-RELATED(Products[Cost Price])))```
+Total Profit = SUMX(Orders,Orders[Product Quantity]*(RELATED(Products[Sale Price])-RELATED(Products[Cost Price])))
+```
 
 - A measure called Total Customers that counts the number of unique customers in the Orders table. 
 ```dax
-Total Customers = DISTINCTCOUNT(Orders[User ID])```
+Total Customers = DISTINCTCOUNT(Orders[User ID])
+```
 
 - A measure called Total Quantity that counts the number of items sold in the Orders table
 ```dax
-Total Quantity = SUM(Orders[Product Quantity])```
+Total Quantity = SUM(Orders[Product Quantity])
+```
 
 - A measure called Profit YTD that calculates the total profit for the current year
 ```dax
-Profit YTD = TOTALYTD([Total Profit],Orders[Order Date])```
+Profit YTD = TOTALYTD([Total Profit],Orders[Order Date])
+```
 
 - A measure called Revenue YTD that calculates the total revenue for the current year
 ```dax
-Revenue YTD = TOTALYTD([Total Revenue],Orders[Order Date])```
+Revenue YTD = TOTALYTD([Total Revenue],Orders[Order Date])
+```
 
 ### Task 5: Create Date and Geography Hierachies
 
