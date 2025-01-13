@@ -24,15 +24,15 @@ Dates = CALENDAR(DATE(2010,1,27),DATE(2023,6,28))
 ```
 Then DAX formulas were used to create the following columns in the date table:
 
-  -Day of Week
-  -Month Number 
-  -Month Name
-  -Quarter
-  -Year
-  -Start of Year
-  -Start of Quarter
-  -Start of Month
-  -Start of Week
+  - Day of Week
+  - Month Number 
+  - Month Name
+  - Quarter
+  - Year
+  - Start of Year
+  - Start of Quarter
+  - Start of Month
+  - Start of Week
 
 ### Task 2: Building the star schema data model
 
@@ -107,7 +107,7 @@ Additionally, a geography hierachy was made with the following levels:
 
 In this step, a report page was created to focus on customer-level analysis.
 
-### Task 1:Creating Headline Card Visuals
+### Task 1: Creating Headline Card Visuals
 
 Card Visuals were created for total distinct customers and revenue per customer:
 
@@ -129,7 +129,7 @@ Card Visuals were created for total distinct customers and revenue per customer:
 
 ### Task 4: Creating the Top 20 Customers Table
 
--A new table was created, which displays the top 20 customers, filtered by revenue. The table shows each customer's full name, revenue, and number of orders.
+- A new table was created, which displays the top 20 customers, filtered by revenue. The table shows each customer's full name, revenue, and number of orders.
 
 - Additional conditional formatting was added to the revenue column, in order to display data bars for the revenue values
 
@@ -215,11 +215,12 @@ The purpose of this page is to provide an in depth look into which products with
 
 ### Task 1: Adding Gauge Visuals
 
-The first step is to add a set of three gauges, showing the current-quarter performance of Orders, Revenue and Profit against a quarterly target.
+The first step was to add a set of three gauges, showing the current-quarter performance of Orders, Revenue and Profit against a quarterly target.
 
 - DAX measures were created for the current quarterly Revenue,Orders and Profits.
 - Measures were then also made for the quarterly targets for each metric and then for the gap between the target and performance measures.
-- Three gauge filters were created, and assigned to the relevant measures. In each case, the maximum value of the gauge was set to the target, so that the gauge shows as full when the target is met.
+- Three gauge filters were created, and assigned to the relevant measures. In each case, the maximum value of the gauge was set to the target, so that the gauge shows as 
+  full when the target is met.
 - Conditional formatting was then applied to the callout value, so that it shows as red if the target is not yet met, and black otherwise.
 - The gauges were arranged so they were spaced evenly at the top right of the page.
 
@@ -377,7 +378,7 @@ The final navigation bar is shown below for the Executive Summary Page:
 
 ## Creating Metrics for Users Outside of the Company Using SQL
 
-It is common to encounter clients that don't have access to specialised visualisation tools like Poer BI. To ensure that data insights can still be extracted and shared witha broader audience, this section will use SQL queries to extract and disseminate key data without relying solely on visulaisation platforms.
+It is common to encounter clients that don't have access to specialised visualisation tools like Poer BI. To ensure that data insights can still be extracted and shared with a broader audience, this section will use SQL queries to extract and disseminate key data without relying solely on visulaisation platforms.
 
 ### Task 1: Connecting to the SQL Server
 
@@ -388,6 +389,7 @@ It is common to encounter clients that don't have access to specialised visualis
 ## Task 2: Checking the Table and Column Names
 
 - A list of the tables in the database was printed and  the result was saved to a **csv** file.
+
 ```sql
 SELECT table_name
 FROM information_schema.tables
