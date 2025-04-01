@@ -2,9 +2,13 @@
 
 # Table of Contents
 - [Project Overview](#project-overview)
-- [Importing the data](#importing_the_data)
+- [Importing the data](#importing_the_data_into_power_bi)
 - [Creating the data model](#creating_the_data_model)
-
+- [Creating the customer details page](#building_the_customer_details_page)
+- [Creating the product details page](#creating_the_product_details_page)
+- [Creating the stores maps page](#creating_the_stores_maps_page)
+- [Cross Filtering and Navigation](#cross-filtering-and-navigation)
+- [Creating metrics for users outside the Company using SQL](#creating-metrics-for-users-outside-of-the-company-using-sql)
 
 ## Project Overview
 
