@@ -2,7 +2,7 @@
 
 # Table of Contents
 - [Project Overview](#project-overview)
-- [Importing the data](#importing-the-data-into-power_bi)
+- [Importing the data](#importing-the-data-into-power-bi)
 - [Creating the data model](#creating-the-data-model)
 - [Creating the customer details page](#building-the-customer-details-page)
 - [Creating the product details page](#creating-the-product-details-page)
