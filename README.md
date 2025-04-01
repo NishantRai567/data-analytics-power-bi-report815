@@ -2,8 +2,7 @@
 
 ## Importing the data into Power Bi 
 
-### The dataset consists of 4 tables: An Orders fact table, and dimension tables for Products,Stores and Customers. 
-
+The dataset consists of 4 tables: An Orders fact table, and dimension tables for Products,Stores and Customers. 
 The first stage of this project involved data loading and preparation.
 - Firstly, a conncection was made to an Azure SQL database to import the orders_powerbi table.
 - Then, the Products dimension table was iported as a csv file.
